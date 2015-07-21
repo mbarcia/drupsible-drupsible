@@ -1,38 +1,32 @@
 [webservers]
-www.drupsible.org ansible_ssh_user=drupsible
+www.drupsible.org ansible_connection=local
 
 [drupsible_mysql]
-local.drupsible.org ansible_connection=local
+www.drupsible.org ansible_connection=local
 
 [debops_apt]
-local.drupsible.org ansible_connection=local
+www.drupsible.org ansible_connection=local
 
 [debops_ferm]
-www.drupsible.org ansible_ssh_user=drupsible
+www.drupsible.org ansible_connection=local
 
 [debops_php5]
-www.drupsible.org ansible_ssh_user=drupsible
+www.drupsible.org ansible_connection=local
 
 [debops_tcpwrappers]
-www.drupsible.org ansible_ssh_user=drupsible
+www.drupsible.org ansible_connection=local
 
 [debops_users]
-www.drupsible.org ansible_ssh_user=drupsible
+www.drupsible.org ansible_connection=local
+
+[drupsible_deploy]
+www.drupsible.org ansible_connection=local
 
 [drupsible_apache2]
-www.drupsible.org ansible_ssh_user=drupsible
+www.drupsible.org ansible_connection=local
 
-[drupsible_memcached]
-www.drupsible.org ansible_ssh_user=drupsible
+[drupsible_newrelic]
+www.drupsible.org ansible_connection=local
 
-# Hosts listed under [ansible_controllers] will have common DebOps plays
-# ran against them. It will include services such as iptables, DNS, Postfix,
-# sshd configuration and more.
-#
-# View the list here:
-# https://github.com/debops/debops-playbooks/blob/master/playbooks/common.yml
-
-# Your host is eligible to be managed by DebOps' common playbook. If you want
-# that functionality and more, then uncomment your hostname below.
 [ansible_controllers]
 127.0.0.1 ansible_connection=local
