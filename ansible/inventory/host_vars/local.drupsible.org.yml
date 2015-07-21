@@ -1,0 +1,65 @@
+---
+target: local
+
+# License key
+newrelic_license_key: False
+
+# Access from localhost
+tcpwrappers_local_allow:
+  - daemon: 'ALL'
+    client: [ '127.0.0.0/8', '::1/128' ]
+    comment: 'Access from localhost'
+    filename: 'allow_localhost'
+    weight: '06'
+  - daemon: 'ALL'
+    client: [ '10.0.2.2' ]
+    comment: 'Access from Vagrant Host'
+    filename: 'allow_localhost'
+    weight: '07'
+    
+# No coge por nombre, solo por IP
+mysql_mysqld_allow: [ "ALL" ]
+#mysql_mysqld_allow: "{{ groups['webservers'] }}"
+mysql_mysqld_bind_address: '0.0.0.0'
+
+webhost: local
+apache_host: "192.168.70.10"
+allow_override_htaccess: None
+
+app_env:
+  aliases: []
+  user: 'vagrant'
+  group: 'www-data'
+  admin_email: mbarcia@asmws.com
+  fpm_listen: '/var/run/php5-fpm-{{ app_name }}.sock'
+  files_tarball_filename: "{{ app_name }}-files.tar.gz"
+  db_dump_filename: "drupsible-db-backup-20150720.sql.gz"
+  db_name: drupsible
+  db_user: drupsible
+  # Set to True if the target env has memcached available
+  memcached: True
+  # True clones the cur database
+  db_clone: False
+  # True looks for a DB dump to upload and import
+  db_import: True
+  # True syncs with source DB
+  db_sync: False
+  # True looks for tarballs (files) to upload and import
+  files_import: False
+  files_sync: False
+  files_copy: False
+  do_cur_backup: False
+  adjust_db: False
+  syslog: True
+
+drupal_admin_password: "drups1ble"
+
+app_drush_source:
+  # Source settings for initial import
+  docroot: '/var/www/drupsible/public_html'
+  remote_host: 'www.drupsible.org'
+  remote_user: 'drupsible'
+  remote_port: 22
+  # notarisdecatalunya.org tiene un NAT forward desde el puerto 8080, retornando un fingerprint diferente 
+  # con lo cual nos obliga a pasar del chequeo de server fingerprint
+  ssh_options: '-o ForwardAgent=yes -o StrictHostKeyChecking=no'

@@ -1,0 +1,42 @@
+---
+target: test
+
+# Deny access from all hosts/networks by default?
+tcpwrappers_deny_all: False
+
+webhost: test
+
+# License key
+newrelic_license_key: False
+
+mysql_mysqld_allow: [ "192.168.0.26" ]
+mysql_mysqld_bind_address: '0.0.0.0'
+
+# This variable determines what options will be used in php.ini for options
+# that can be useful either in production or development environment
+php5_production: False
+
+app_env:
+  aliases: []
+  user: asm
+  group: www-data
+  admin_email: mbarcia@asmws.com
+  log: 'restws_debug.log'
+  fpm_listen: '/var/run/php5-fpm-{{ app_name }}.sock'
+  files_tarball_filename: "{{ app_name }}-files.tar.gz"
+  db_dump_filename: "drupsible-db-backup-20150720.sql.gz"
+  db_name: cnc
+  db_user: drupal
+  # Set to True if the target env has memcached available
+  memcached: True
+  # True clones the cur database
+  db_clone: False
+  # True looks for a DB dump to upload and import
+  db_import: True
+  # True syncs with source DB
+  db_sync: False
+  # True looks for tarballs (files) to upload and import
+  files_import: False
+  do_cur_backup: False
+  adjust_db: False
+  syslog: True

@@ -1,0 +1,16 @@
+---
+
+# Active Postfix capabilities (see README.md). By default Postfix is configured
+# with local mail disabled, all mail is sent to local domain MX server
+postfix: [ 'submission' ]
+
+# Configuration options for Postfix. Many options are configured automatically
+# using templates, here you can (mostly) add your own entries to Postfix lists
+# (look in Postfix manual for details), they will by added or replaced in
+# templates.
+
+# Mail host name configured in /etc/mailname
+postfix_mailname: 'notarisdecatalunya.org'
+
+# List of relay domains this host accepts
+postfix_relay_domains: [ 'notarisdecatalunya.org', 'notariosdecataluña.org', 'notaris.cat' ]
