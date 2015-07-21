@@ -21,6 +21,7 @@ app_env:
   fpm_listen: '/var/run/php5-fpm-{{ app_name }}.sock'
   admin_email: mariano.barcia@gmail.com
   files_tarball_filename: "{{ app_name }}-files.tar.gz"
+  db_dump_filename: "drupsible-db-backup-20150720.sql.gz"
   db_name: drupsible
   db_user: drupsible
   # Set to True if the target env has memcached available
@@ -28,13 +29,14 @@ app_env:
   # True clones the cur database
   db_clone: False
   # True looks for a DB dump to upload and import
-  db_import: False
+  db_import: True
   # True syncs with source DB
   db_sync: False
   # True looks for tarballs (files) to upload and import
   files_import: False
-  files_sync: False
-  files_copy: False
+  do_cur_backup: False
+  adjust_db: False
+  syslog: True
   do_cur_backup: False
   adjust_db: False
   syslog: True

@@ -1,5 +1,5 @@
 [webservers]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [drupsible_mysql]
 www.drupsible.org ansible_ssh_user=drupsible
