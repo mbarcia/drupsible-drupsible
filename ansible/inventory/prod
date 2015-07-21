@@ -2,31 +2,31 @@
 www.drupsible.org ansible_connection=local
 
 [drupsible_mysql]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [debops_apt]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [debops_ferm]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [debops_php5]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [debops_tcpwrappers]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [debops_users]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [drupsible_deploy]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [drupsible_apache2]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [drupsible_newrelic]
-www.drupsible.org ansible_connection=local
+www.drupsible.org ansible_ssh_user=drupsible
 
 [ansible_controllers]
 127.0.0.1 ansible_connection=local
