@@ -9,7 +9,7 @@ webhost: test
 # License key
 newrelic_license_key: False
 
-mysql_mysqld_allow: [ "192.168.0.26" ]
+mysql_mysqld_allow: [ "178.62.224.181" ]
 mysql_mysqld_bind_address: '0.0.0.0'
 
 # This variable determines what options will be used in php.ini for options

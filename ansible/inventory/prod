@@ -29,4 +29,4 @@ www.drupsible.org ansible_ssh_user=drupsible
 www.drupsible.org ansible_ssh_user=drupsible
 
 [ansible_controllers]
-127.0.0.1 ansible_connection=local
+84.39.225.34 ansible_connection=local

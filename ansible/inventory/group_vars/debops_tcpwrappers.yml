@@ -10,7 +10,7 @@ tcpwrappers: True
 # Note: If you are using debop.ferm, too (or the DebOps playbook),
 #       mind setting `ferm_ansible_controllers`. An easier way would
 #       be to use the `debops.sshd` role to configure ssh service.
-tcpwrappers_ansible_controllers: ['192.168.0.27']
+tcpwrappers_ansible_controllers: ['84.39.225.34']
 
 # Deny access from all hosts/networks by default?
 tcpwrappers_deny_all: True
