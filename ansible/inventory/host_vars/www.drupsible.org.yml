@@ -7,7 +7,3 @@ newrelic_license_key: False
 
 mysql_mysqld_allow: [ "178.62.224.181" ]
 mysql_mysqld_bind_address: '178.62.224.181'
-
-# This variable determines what options will be used in php.ini for options
-# that can be useful either in production or development environment
-php5_production: True

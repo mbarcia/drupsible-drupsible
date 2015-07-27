@@ -4,22 +4,7 @@ target: local
 # License key
 newrelic_license_key: False
 
-# Access from localhost
-tcpwrappers_local_allow:
-  - daemon: 'ALL'
-    client: [ '127.0.0.0/8', '::1/128' ]
-    comment: 'Access from localhost'
-    filename: 'allow_localhost'
-    weight: '06'
-  - daemon: 'ALL'
-    client: [ '10.0.2.2' ]
-    comment: 'Access from Vagrant Host'
-    filename: 'allow_localhost'
-    weight: '07'
-    
-# No coge por nombre, solo por IP
 mysql_mysqld_allow: [ "ALL" ]
-#mysql_mysqld_allow: "{{ groups['webservers'] }}"
 mysql_mysqld_bind_address: '0.0.0.0'
 
 webhost: local
@@ -60,6 +45,4 @@ app_drush_source:
   remote_host: 'www.drupsible.org'
   remote_user: 'drupsible'
   remote_port: 22
-  # notarisdecatalunya.org tiene un NAT forward desde el puerto 8080, retornando un fingerprint diferente 
-  # con lo cual nos obliga a pasar del chequeo de server fingerprint
-  ssh_options: '-o ForwardAgent=yes -o StrictHostKeyChecking=no'
+  ssh_options: '-o ForwardAgent=yes'

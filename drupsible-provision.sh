@@ -28,8 +28,8 @@ if [ "$1" == 'vagrant' ]; then
 	if [ ! -d /etc/ansible ]; then
 		mkdir /etc/ansible
 	fi
-	if [ ! -L /etc/ansible/drupsible-requirements.yml ]; then
-		ln -s /vagrant/ansible/drupsible-requirements.yml /etc/ansible/drupsible-requirements.yml
+	if [ ! -L /etc/ansible/requirements.yml ]; then
+		ln -s /vagrant/ansible/requirements.yml /etc/ansible/requirements.yml
 	fi
 	echo "Vagrant scaffolding (Windows only)..."
 	if [ "$2" == "is_windows" ]; then
@@ -78,10 +78,10 @@ fi
 
 # Download Drupsible roles
 echo "Installing Drupsible roles and its dependencies..."
-if [ -f ~/ansible/drupsible-requirements.yml ]; then
-	ansible-galaxy install --ignore-errors -f -r ~/ansible/drupsible-requirements.yml
-elif [ -f /etc/ansible/drupsible-requirements.yml ]; then
-	ansible-galaxy install --ignore-errors -f -r /etc/ansible/drupsible-requirements.yml
+if [ -f ~/ansible/requirements.yml ]; then
+	ansible-galaxy install --ignore-errors -f -r ~/ansible/requirements.yml
+elif [ -f /etc/ansible/requirements.yml ]; then
+	ansible-galaxy install --ignore-errors -f -r /etc/ansible/requirements.yml
 else
 	echo "Drupsible requirements not found"
 	exit -1

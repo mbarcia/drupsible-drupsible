@@ -3,20 +3,6 @@ mysql_databases:
 - name: "{{ app_name }}"
   state: 'present'
 
-mysql_users:
-- name: "{{ app_env['db_user'] }}"
-  host: "%"
-  state: 'present'
-  password: '{{ app_env["db_password"] }}'
-  priv: '*.*:ALL'
-  append_privs: 'yes'
-- name: "{{ app_env['db_user'] }}"
-  host: localhost
-  state: 'present'
-  password: '{{ app_env["db_password"] }}'
-  priv: '*.*:ALL'
-  append_privs: 'yes'
-
 # ---- MySQL server configuration ----
 # Use this hash variable to set additional mysqld options
 mysql_mysqld_options: {
